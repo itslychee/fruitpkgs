@@ -6,26 +6,29 @@
   pytestCheckHook,
   astunparse,
   setuptools,
+  typing-extensions,
 }:
 buildPythonPackage rec {
   pname = "import-expression";
-  version = "1.1.5";
+  version = "2.0.0";
   pyproject = true;
 
   src = fetchPypi {
     inherit version;
     pname = "import_expression";
-    hash = "sha256-mVlYj8/I3LFEoHJRds/vbCjH2x/C1oNiUCXmh1FtQME=";
+    hash = "sha256-Biw7dIOPKbDcqYJSCyeqC/seREcVihSZuaKNFfgjTew=";
   };
 
   build-system = [ setuptools ];
-  dependencies = [ astunparse ];
+  dependencies = [
+    astunparse
+    typing-extensions
+  ];
   nativeCheckInputs = [ pytestCheckHook ];
   pytestFlagsArray = [ "tests.py" ];
 
   pythonImportsCheck = [
     "import_expression"
-    "import_expression._codec"
   ];
 
   meta = {
