@@ -69,14 +69,14 @@ buildDotnetModule rec {
       desktopName = "Celeste64";
       genericName = "Celeste64";
       icon = "Celeste64";
-      categories = [ "Game" ];
+      categories = ["Game"];
     })
   ];
 
   meta = {
-    license = with lib.licenses; [ unfree mit ];
-    platforms = [ "x86_64-linux" "aarch64-linux" "armv7l-linux" ];
-    maintainers = with lib.maintainers; [ lychee ];
+    license = with lib.licenses; [unfreeRedistributable mit];
+    platforms = ["x86_64-linux" "aarch64-linux" "armv7l-linux"];
+    maintainers = with lib.maintainers; [lychee];
     mainProgram = "Celeste64";
     homepage = "https://github.com/ExOK/Celeste64";
     description = "Celeste 64: Fragments of the Mountain";
