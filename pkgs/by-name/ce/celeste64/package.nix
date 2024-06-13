@@ -7,7 +7,6 @@
   copyDesktopItems,
   SDL2,
   libGL,
-  mesa,
   systemd,
   libpulseaudio,
   libselinux,
@@ -18,7 +17,6 @@
   libdrm,
   withSELinux ? false,
 }:
-
 buildDotnetModule rec {
   pname = "celeste64";
   version = "1.1.1";
@@ -34,8 +32,8 @@ buildDotnetModule rec {
   dotnet-runtime = dotnetCorePackages.runtime_8_0;
   nugetDeps = ./deps.nix;
   strictDeps = true;
-  executables = [ "Celeste64" ];
-  nativeBuildInputs = [ copyDesktopItems ];
+  executables = ["Celeste64"];
+  nativeBuildInputs = [copyDesktopItems];
   runtimeDeps =
     [
       libdecor
@@ -53,7 +51,7 @@ buildDotnetModule rec {
       xorg.libXi
       xorg.libXrandr
     ]
-    ++ lib.optionals withSELinux [ libselinux ];
+    ++ lib.optionals withSELinux [libselinux];
 
   postInstall = ''
     export ICON_DIR=$out/share/icons/hicolor/256x256/apps
@@ -62,7 +60,6 @@ buildDotnetModule rec {
     cp -r $src/Content $out/lib/$pname/
     cp $src/Content/Models/Sources/logo1.png $ICON_DIR/Celeste64.png
   '';
-
 
   desktopItems = [
     (makeDesktopItem {
