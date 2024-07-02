@@ -64,11 +64,11 @@ let
 
 in stdenv.mkDerivation (finalAttrs: {
   pname = "google-chrome";
-  version = "125.0.6422.112";
+  version = "126.0.6478.126";
 
   src = fetchurl {
     url = "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${finalAttrs.version}-1_amd64.deb";
-    hash = "sha256-Tx9SGob0b4mndk+zIhSL8MAuCUdwz2HrbnhfXYYfEUo=";
+    hash = "sha256-PsHK27Vc9mzFHwQh6s4ySoiDbuLZgrlFuPZ6PxMbCSQ=";
   };
 
   nativeBuildInputs = [ patchelf makeWrapper ];
@@ -155,7 +155,7 @@ in stdenv.mkDerivation (finalAttrs: {
   };
 
   meta = {
-    description = "A freeware web browser developed by Google";
+    description = "Freeware web browser developed by Google";
     homepage = "https://www.google.com/chrome/browser/";
     license = lib.licenses.unfree;
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
